@@ -9,7 +9,7 @@ function verifyGoogleIPAddress (ip, callback) {
 		callback(false);
 	} else {
 		dns.reverse(ip, function (error, hosts) {
-			var host = hosts.pop();
+			var host = hosts ? hosts.pop() : null;
 
 			// is reverse lookup a google domain
 			if (host && host.match(/(?:googlebot|google)\.com$/i)) {
